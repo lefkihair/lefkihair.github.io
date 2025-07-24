@@ -31,6 +31,15 @@
             border-radius: 25px;
         }
     </style>
+    <script>
+        // Redirect clean URLs to .html files
+        const path = window.location.pathname;
+        const pages = ['index', 'about', 'services', 'prices', 'gallery', 'contact'];
+        const page = path.split('/').pop() || 'index';
+        if (pages.includes(page)) {
+            window.location.replace(`/${page}.html`);
+        }
+    </script>
 </head>
 <body>
     <h1>404 - Page Not Found</h1>
