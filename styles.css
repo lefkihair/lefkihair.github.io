@@ -724,6 +724,31 @@ nav.scrolled .hamburger { color: #3D3738; }
 
 .contact-form button:hover { transform: translateY(-5px); }
 
+/* WhatsApp Button */
+.whatsapp-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background-color: #25D366; /* WhatsApp green */
+    color: #FFFFFF;
+    padding: 12px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #20b358; /* Slightly darker green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
 /* Thank You Section */
 .thank-you {
     text-align: center;
@@ -976,4 +1001,11 @@ footer {
     .whatsapp-qr img {
         max-width: 100px; /* Even smaller on mobile */
     }
+    .whatsapp-btn {
+    padding: 10px 25px;
+    font-size: 1em;
 }
+}
+
+
+
