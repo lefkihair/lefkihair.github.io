@@ -1,223 +1,188 @@
-// ============================================================
-// Lefki Hair Salon – script.js
-// Fixes: scroll animations, lightbox (fixed position),
-//        hamburger outside-click, inner-page nav, touch swipe
-// ============================================================
+// Hamburger Menu Toggle
+document.querySelector('.hamburger').addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+    document.querySelector('.hamburger').setAttribute('aria-expanded', navLinks.classList.contains('active'));
+});
 
-// --- Hamburger Menu Toggle ---
-const hamburger = document.querySelector('.hamburger');
-const navLinks  = document.querySelector('.nav-links');
-
-if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-        const isOpen = navLinks.classList.toggle('active');
-        hamburger.setAttribute('aria-expanded', isOpen);
-        hamburger.textContent = isOpen ? '✕' : '☰';
-    });
-
-    // Close menu when a link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            hamburger.textContent = '☰';
-        });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-            navLinks.classList.remove('active');
-            hamburger.setAttribute('aria-expanded', 'false');
-            hamburger.textContent = '☰';
-        }
-    });
-}
-
-// --- Navbar Scroll Effect ---
-// FIX: on inner pages (no .hero), always keep nav in scrolled state
-const nav     = document.querySelector('nav');
-const hasHero = document.querySelector('.hero');
-
-function updateNav() {
-    if (!nav) return;
-    if (!hasHero || window.scrollY > 60) {
+// Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
         nav.classList.add('scrolled');
         nav.classList.remove('transparent');
     } else {
         nav.classList.add('transparent');
         nav.classList.remove('scrolled');
     }
-}
+});
 
-// Apply immediately on load so inner pages don't flash white text on white bg
-updateNav();
-window.addEventListener('scroll', updateNav, { passive: true });
-
-// --- Scroll Animations ---
-// FIX: was animating immediately on load; now only triggers when element enters viewport
-const animateElements = document.querySelectorAll(
-    '.animate, .animate-left, .animate-right, .animate-input'
-);
-
-const animationObserver = new IntersectionObserver((entries) => {
+// Scroll Animations
+const animateElements = document.querySelectorAll('.animate, .animate-left, .animate-right, .animate-input');
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Stagger: small random delay for visual rhythm
-            entry.target.style.animationDelay = `${Math.random() * 0.3}s`;
+            entry.target.style.animationDelay = `${Math.random() * 0.5}s`;
             entry.target.classList.add('visible');
-            animationObserver.unobserve(entry.target); // animate once
         }
     });
-}, { threshold: 0.15 });
+}, { threshold: 0.2 });
 
-animateElements.forEach(el => animationObserver.observe(el));
+animateElements.forEach(element => observer.observe(element));
 
-// --- Particle Animation ---
+// Particle Animation
 const particleBg = document.querySelector('.particle-bg');
 if (particleBg) {
-    for (let i = 0; i < 55; i++) {
-        const p = document.createElement('div');
-        p.classList.add('particle');
-        p.style.left              = `${Math.random() * 100}%`;
-        p.style.animationDelay    = `${Math.random() * 6}s`;
-        p.style.animationDuration = `${4 + Math.random() * 6}s`;
-        particleBg.appendChild(p);
+    for (let i = 0; i < 60; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.animationDelay = `${Math.random() * 6}s`;
+        particle.style.animationDuration = `${4 + Math.random() * 6}s`;
+        particleBg.appendChild(particle);
     }
 }
 
-// --- Typing Animation for Hero ---
-const phrases    = ["Timeless Bridal Hair", "Wedding Hair & Styling", "Elegant Updos"];
-let phraseIndex  = 0;
-let charIndex    = 0;
-let isDeleting   = false;
+// Typing Animation for Hero
+const phrases = ["Timeless Bridal Hair", "Wedding Hair & Styling", "Elegant Updos"];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 const typingText = document.getElementById('typing-text');
 
 function type() {
-    if (!typingText) return;
     const currentPhrase = phrases[phraseIndex];
     if (isDeleting) {
-        typingText.textContent = currentPhrase.substring(0, --charIndex);
+        typingText.textContent = currentPhrase.substring(0, charIndex--);
     } else {
-        typingText.textContent = currentPhrase.substring(0, ++charIndex);
+        typingText.textContent = currentPhrase.substring(0, charIndex++);
     }
-    if (!isDeleting && charIndex === currentPhrase.length) {
+
+    if (!isDeleting && charIndex === currentPhrase.length + 1) {
         isDeleting = true;
-        setTimeout(type, 1800);
+        setTimeout(type, 1500); // Pause before deleting
     } else if (isDeleting && charIndex === 0) {
-        isDeleting  = false;
+        isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, 300);
+        setTimeout(type, 200); // Pause before next phrase
     } else {
-        setTimeout(type, isDeleting ? 45 : 90);
+        setTimeout(type, isDeleting ? 50 : 100); // Typing/deleting speed
     }
 }
-if (typingText) setTimeout(type, 600);
 
-// --- Testimonial Carousel ---
-const testimonials    = document.querySelectorAll('.testimonial');
+if (typingText) {
+    setTimeout(type, 500); // Start typing
+}
+
+// Testimonial Carousel
+const testimonials = document.querySelectorAll('.testimonial');
 let currentTestimonial = 0;
 
-if (testimonials.length > 0) {
-    testimonials[0].classList.add('active');
-    setInterval(() => {
-        testimonials[currentTestimonial].classList.remove('active');
+function showNextTestimonial() {
+    testimonials[currentTestimonial].classList.remove('active');
+    setTimeout(() => {
         currentTestimonial = (currentTestimonial + 1) % testimonials.length;
         testimonials[currentTestimonial].classList.add('active');
-    }, 5000);
+    }, 1000); // Wait for fade-out (matches CSS transition)
 }
 
-// --- Lightbox ---
-// FIX: position is now fixed in CSS, removed all the hacky initialTopPosition JS
-const lightbox      = document.querySelector('.lightbox');
-const lightboxImg   = document.querySelector('.lightbox-content');
+if (testimonials.length > 0) {
+    testimonials[currentTestimonial].classList.add('active');
+    setInterval(showNextTestimonial, 5000); // Change every 5 seconds
+}
+
+// Lightbox for Gallery
+const lightbox = document.querySelector('.lightbox');
+const lightboxImg = document.querySelector('.lightbox-content');
 const closeLightbox = document.querySelector('.close-lightbox');
-const lightboxPrev  = document.querySelector('.lightbox-prev');
-const lightboxNext  = document.querySelector('.lightbox-next');
-const galleryImages = Array.from(document.querySelectorAll('.lightbox-img'));
-let currentIndex    = 0;
-let counter         = null;
+const lightboxPrev = document.querySelector('.lightbox-prev');
+const lightboxNext = document.querySelector('.lightbox-next');
+const galleryImages = document.querySelectorAll('.lightbox-img');
+let currentIndex = 0;
+let initialTopPosition = 0; // Store initial lightbox position
+let initialLightboxHeight = 0; // Store initial lightbox height
 
-function openLightbox(index) {
-    currentIndex     = index;
-    lightboxImg.src  = galleryImages[index].src;
-    lightboxImg.alt  = galleryImages[index].alt;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden'; // prevent background scroll
-    lightboxImg.style.animation  = 'lightboxFade 0.4s ease-out';
-    updateCounter();
-}
+if (lightbox && lightboxImg && closeLightbox && lightboxPrev && lightboxNext) {
+    galleryImages.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            currentIndex = index;
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            lightboxImg.style.animation = 'lightboxFade 0.5s ease-out';
 
-function closeLightboxFn() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-    lightboxImg.style.animation  = '';
-}
-
-function navigate(direction) {
-    currentIndex = (currentIndex + direction + galleryImages.length) % galleryImages.length;
-    lightboxImg.style.setProperty('--x', `${direction > 0 ? '50px' : '-50px'}`);
-    lightboxImg.style.animation = '';
-    // Trigger reflow to restart animation
-    void lightboxImg.offsetWidth;
-    lightboxImg.src = galleryImages[currentIndex].src;
-    lightboxImg.alt = galleryImages[currentIndex].alt;
-    lightboxImg.style.animation = 'lightboxSlide 0.35s ease-out';
-    updateCounter();
-}
-
-function updateCounter() {
-    if (!counter) {
-        counter = document.createElement('span');
-        counter.className = 'lightbox-counter';
-        lightbox.appendChild(counter);
-    }
-    counter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
-}
-
-if (lightbox && lightboxImg && closeLightbox) {
-    galleryImages.forEach((img, i) => {
-        img.addEventListener('click', () => openLightbox(i));
-        img.style.cursor = 'pointer';
+            // Set initial position based on clicked image
+            const imgRect = img.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const offsetTop = imgRect.top + window.scrollY;
+            initialLightboxHeight = Math.max(lightboxImg.offsetHeight || viewportHeight, viewportHeight);
+            initialTopPosition = offsetTop - (viewportHeight / 2) + (imgRect.height / 2);
+            lightbox.style.top = `${Math.max(0, initialTopPosition)}px`;
+            lightbox.style.minHeight = `${initialLightboxHeight}px`;
+        });
     });
 
-    closeLightbox.addEventListener('click', closeLightboxFn);
-    lightboxPrev?.addEventListener('click', () => navigate(-1));
-    lightboxNext?.addEventListener('click', () => navigate(1));
+    closeLightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        lightboxImg.style.animation = '';
+        lightbox.style.top = ''; // Reset position
+        lightbox.style.minHeight = ''; // Reset height
+        initialTopPosition = 0; // Reset initial position
+        initialLightboxHeight = 0; // Reset initial height
+    });
 
-    // Close on backdrop click
     lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightboxFn();
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            lightboxImg.style.animation = '';
+            lightbox.style.top = ''; // Reset position
+            lightbox.style.minHeight = ''; // Reset height
+            initialTopPosition = 0; // Reset initial position
+            initialLightboxHeight = 0; // Reset initial height
+        }
     });
 
-    // Keyboard navigation
+    lightboxPrev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        lightboxImg.src = galleryImages[currentIndex].src;
+        lightboxImg.style.animation = 'lightboxSlide 0.5s ease-out';
+        lightboxImg.style.setProperty('--x', '-50px');
+        // Maintain initial position
+        lightbox.style.top = `${Math.max(0, initialTopPosition)}px`;
+        lightbox.style.minHeight = `${initialLightboxHeight}px`;
+    });
+
+    lightboxNext.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        lightboxImg.src = galleryImages[currentIndex].src;
+        lightboxImg.style.animation = 'lightboxSlide 0.5s ease-out';
+        lightboxImg.style.setProperty('--x', '50px');
+        // Maintain initial position
+        lightbox.style.top = `${Math.max(0, initialTopPosition)}px`;
+        lightbox.style.minHeight = `${initialLightboxHeight}px`;
+    });
+
+    // Keyboard Navigation for Lightbox
     document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'ArrowLeft')  navigate(-1);
-        if (e.key === 'ArrowRight') navigate(1);
-        if (e.key === 'Escape')     closeLightboxFn();
+        if (lightbox.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                lightboxPrev.click();
+            } else if (e.key === 'ArrowRight') {
+                lightboxNext.click();
+            } else if (e.key === 'Escape') {
+                closeLightbox.click();
+            }
+        }
     });
-
-    // Touch swipe support for mobile
-    let touchStartX = 0;
-    lightbox.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].clientX;
-    }, { passive: true });
-    lightbox.addEventListener('touchend', (e) => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
-    }, { passive: true });
 }
 
-// --- Contact Form Validation ---
+// Form Submission
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         const service = document.querySelector('#service')?.value;
-        if (!service) {
+        if (service === '') {
             e.preventDefault();
-            document.querySelector('#service').focus();
-            alert('Please select a service before submitting.');
+            alert('Please select a service.');
         }
     });
 }
