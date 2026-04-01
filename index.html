@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Louis Ledra Beach Hair Salon, Paphos">
-    <meta name="keywords" content="hair salon, bridal hair, hair coloring, hair styling, Louis Ledra Beach Hair Salon, Paphos ">
+    <meta name="description" content="Lefki Hair Salon at Louis Ledra Beach Hotel, Paphos – Expert bridal hair, colouring, cuts and styling by master stylist with 33 years experience.">
+    <meta name="keywords" content="hair salon, bridal hair, hair coloring, hair styling, Louis Ledra Beach Hair Salon, Paphos, Cyprus">
     <meta name="author" content="Lefki Hair Salon">
-    <title>Louis Ledra Beach Hair Salon, Paphos</title>
+    <title>Lefki Hair Salon – Louis Ledra Beach, Paphos</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -18,16 +18,18 @@
                 <span class="logo-text"><span>Lefki</span> Hair Salon</span>
                 <div class="logo-subtitle">at Louis Ledra Beach Hotel</div>
             </div>
-            <ul class="nav-links" role="navigation">
-                <li><a href="/" class="active" aria-current="page">Home</a></li>
+            <ul class="nav-links" role="navigation" aria-label="Main navigation">
+                <li><a href="index" class="active" aria-current="page">Home</a></li>
                 <li><a href="prices">Prices</a></li>
                 <li><a href="gallery">Gallery</a></li>
                 <li><a href="contact">Contact</a></li>
             </ul>
-            <div class="hamburger" role="button" aria-label="Toggle Menu">☰</div>
+            <div class="hamburger" role="button" aria-label="Toggle Menu" aria-expanded="false">☰</div>
         </nav>
     </header>
+
     <main>
+        <!-- Hero -->
         <section class="hero">
             <div class="particle-bg"></div>
             <div class="hero-content">
@@ -39,83 +41,96 @@
             </div>
             <div class="scroll-indicator" aria-hidden="true">↓</div>
         </section>
+
+        <!-- About Preview -->
         <section class="preview about-preview animate">
-            <h2>Hairdresser</h2>
+            <h2>Meet Lefki</h2>
             <div class="preview-content">
                 <div class="preview-text">
-                    <p>Experience luxury hair care with Lefki, a master stylist with over 33 years of expertise. 
-                        We create breathtaking looks that make you shine.</p>
+                    <p>Experience luxury hair care with Lefki, a master stylist with over 33 years of expertise.
+                    Based at the beautiful Louis Ledra Beach Hotel in Paphos, we create breathtaking looks
+                    that make you shine — from bridal perfection to everyday elegance.</p>
                 </div>
             </div>
         </section>
+
+        <!-- Services Preview -->
         <section class="preview services-preview animate">
             <h2>Our Signature Services</h2>
             <div class="service-list">
-                <div class="service-item tilt">
+                <div class="service-item">
                     <img src="images/haircut.jpg" alt="Wedding Hair" loading="lazy">
                     <h3>Wedding Hair</h3>
-                    <p>Wedding Hair for everyone. </p>
+                    <p>Bridal, bridesmaids &amp; wedding guest styles crafted to perfection.</p>
                 </div>
-                <div class="service-item tilt">
+                <div class="service-item">
                     <img src="images/coloring.jpg" alt="General Hair" loading="lazy">
                     <h3>General Hair</h3>
-                    <p>Cuts, Blow Dry, Colour, Highlights.</p>
+                    <p>Cuts, blow dry, colour &amp; highlights for a stunning everyday look.</p>
                 </div>
             </div>
             <a href="prices" class="see-more glow" role="button">View Full Pricing</a>
         </section>
-        
 
+        <!-- Gallery Preview -->
         <section class="preview gallery-preview animate">
             <h2>Our Masterpieces</h2>
             <div class="gallery-grid">
-            <img src="images/IMG-20250723-WA0001.jpg" alt="Hair Style 4" class="tilt lightbox-img" loading="lazy">
-            <img src="images/IMG-20250723-WA0019.jpg" alt="Hair Style 5" class="tilt lightbox-img" loading="lazy">
-            <img src="images/IMG-20250723-WA0020.jpg" alt="Hair Style 6" class="tilt lightbox-img" loading="lazy">
+                <img src="images/IMG-20250723-WA0001.jpg" alt="Bridal hair style" class="lightbox-img" loading="lazy">
+                <img src="images/IMG-20250723-WA0019.jpg" alt="Elegant updo"      class="lightbox-img" loading="lazy">
+                <img src="images/IMG-20250723-WA0020.jpg" alt="Hair styling"      class="lightbox-img" loading="lazy">
             </div>
             <a href="gallery" class="see-more glow" role="button">See More Creations</a>
         </section>
+
+        <!-- Testimonials -->
         <section class="preview testimonials-preview animate">
             <h2>Client Love</h2>
             <div class="testimonial-slider">
-                <div class="testimonial" data-testimonial="1">
+                <div class="testimonial">
                     <p class="quote">"Lefki transformed my bridal look into pure magic!"</p>
                     <p class="author">~ Sarah M.</p>
                 </div>
-                <div class="testimonial" data-testimonial="2">
+                <div class="testimonial">
                     <p class="quote">"The most luxurious salon experience I've ever had."</p>
                     <p class="author">~ Emma L.</p>
                 </div>
-                <div class="testimonial" data-testimonial="3">
+                <div class="testimonial">
                     <p class="quote">"Stunning results and impeccable service!"</p>
                     <p class="author">~ Maria K.</p>
                 </div>
             </div>
         </section>
+
+        <!-- Contact Preview -->
         <section class="preview contact-preview animate">
             <h2>Connect With Us</h2>
             <div class="contact-info">
-                <p><strong>Phone:</strong> <a href="tel:+35799496580">(+357) 99496580</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+35799496580">(+357) 99 496 580</a></p>
                 <p><strong>Email:</strong> <a href="mailto:lefkihair@samisenjapanese.com">lefkihair@samisenjapanese.com</a></p>
                 <p><strong>Address:</strong> Louis Ledra Beach Hotel, Paphos, Cyprus</p>
-                <p><strong>Hours:</strong> Flexible</p>
+                <p><strong>Hours:</strong> Flexible – contact us to arrange</p>
             </div>
             <a href="contact" class="see-more glow" role="button">Get in Touch</a>
         </section>
     </main>
+
     <footer>
-        <p>&copy;  2025 Lefki Hair Salon. All rights reserved.</p>
+        <p>&copy; 2025 Lefki Hair Salon. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://instagram.com/lefkihair" target="_blank" aria-label="Instagram">Instagram</a>
-            <a href="https://www.facebook.com/people/Lefki-Hair/61578693663488/" target="_blank" aria-label="Facebook">Facebook</a>
+            <a href="https://instagram.com/lefkihair" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/people/Lefki-Hair/61578693663488/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
         </div>
     </footer>
-    <div class="lightbox">
-        <span class="close-lightbox" aria-label="Close lightbox">&times;</span>
-        <img class="lightbox-content" src="" alt="Lightbox image">
-        <button class="lightbox-prev" aria-label="Previous image">&larr;</button>
-        <button class="lightbox-next" aria-label="Next image">&rarr;</button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" role="dialog" aria-label="Image lightbox" aria-modal="true">
+        <span class="close-lightbox" role="button" aria-label="Close lightbox">×</span>
+        <img class="lightbox-content" src="" alt="">
+        <button class="lightbox-prev" aria-label="Previous image">❮</button>
+        <button class="lightbox-next" aria-label="Next image">❯</button>
     </div>
+
     <a href="contact" class="sticky-cta pulse" role="button" aria-label="Book Now">Book Now</a>
     <script src="script.js"></script>
 </body>

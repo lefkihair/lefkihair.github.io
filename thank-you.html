@@ -4,48 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thank you for contacting Lefki Hair Salon in Paphos, Cyprus.">
-    <meta name="keywords" content="hair salon, bridal hair, hair coloring, hair styling, Louis Ledra Beach Hair Salon, Paphos ">
-    <meta name="author" content="Lefki Hair Salon">
-    <title>Louis Ledra Beach Hair Salon, Paphos</title>
+    <meta name="robots" content="noindex">
+    <title>Thank You – Lefki Hair Salon, Paphos</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <nav class="transparent">
+        <nav class="scrolled">
             <div class="logo">
                 <span class="logo-text"><span>Lefki</span> Hair Salon</span>
                 <div class="logo-subtitle">at Louis Ledra Beach Hotel</div>
             </div>
-            <ul class="nav-links" role="navigation">
-                <li><a href="/">Home</a></li>
+            <ul class="nav-links" role="navigation" aria-label="Main navigation">
+                <li><a href="index">Home</a></li>
                 <li><a href="prices">Prices</a></li>
                 <li><a href="gallery">Gallery</a></li>
                 <li><a href="contact">Contact</a></li>
             </ul>
-            <div class="hamburger" role="button" aria-label="Toggle Menu">☰</div>
+            <div class="hamburger" role="button" aria-label="Toggle Menu" aria-expanded="false">☰</div>
         </nav>
     </header>
+
     <main>
+        <div class="page-banner">
+            <div>
+                <h1>Thank You!</h1>
+                <span class="banner-subtitle">We'll be in touch soon</span>
+            </div>
+        </div>
+
         <section class="thank-you animate">
-            <h1>Thank You!</h1>
-            <p>Your message has been sent successfully. We'll get back to you soon!</p>
-            <a href="/" class="glow" role="button" aria-label="Back to Contact">Back to Home</a>
+            <p>Your message has been sent successfully. We'll get back to you as soon as possible!</p>
+            <a href="index" class="glow" role="button" aria-label="Back to Home">Back to Home</a>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2025 Lefki Hair Salon. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://instagram.com/lefkihair" target="_blank" aria-label="Instagram">Instagram</a>
-            <a href="https://facebook.com/lefkihair" target="_blank" aria-label="Facebook">Facebook</a>
+            <a href="https://instagram.com/lefkihair" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+            <!-- FIX: was https://facebook.com/lefkihair — incorrect URL -->
+            <a href="https://www.facebook.com/people/Lefki-Hair/61578693663488/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
         </div>
     </footer>
+
     <a href="contact" class="sticky-cta pulse" role="button" aria-label="Book Now">Book Now</a>
     <script src="script.js"></script>
     <script>
-        // Remove query string from URL
-        if (window.location.search.includes('result=')) {
+        // Clean up any web3forms query string from URL
+        if (window.location.search) {
             window.history.replaceState({}, document.title, window.location.pathname);
         }
     </script>
