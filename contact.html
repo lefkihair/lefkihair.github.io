@@ -3,86 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Lefki Hair Salon at Louis Ledra Beach Hotel, Paphos – book an appointment for bridal hair, colouring and styling.">
-    <meta name="keywords" content="contact hair salon, book appointment, bridal hair, Louis Ledra Beach Hair Salon, Paphos">
+    <meta name="description" content="Louis Ledra Beach Hair Salon, Paphos | Conduct">
+    <meta name="keywords" content="hair salon, bridal hair, hair coloring, hair styling, Louis Ledra Beach Hair Salon, Paphos ">
     <meta name="author" content="Lefki Hair Salon">
-    <title>Contact – Lefki Hair Salon, Paphos</title>
+    <title>Louis Ledra Beach Hair Salon, Paphos</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <!-- FIX: starts as scrolled on inner pages -->
-        <nav class="scrolled">
+        <nav class="transparent">
             <div class="logo">
                 <span class="logo-text"><span>Lefki</span> Hair Salon</span>
                 <div class="logo-subtitle">at Louis Ledra Beach Hotel</div>
             </div>
-            <ul class="nav-links" role="navigation" aria-label="Main navigation">
+            <ul class="nav-links" role="navigation">
                 <li><a href="index">Home</a></li>
                 <li><a href="prices">Prices</a></li>
                 <li><a href="gallery">Gallery</a></li>
                 <li><a href="contact" class="active" aria-current="page">Contact</a></li>
             </ul>
-            <div class="hamburger" role="button" aria-label="Toggle Menu" aria-expanded="false">☰</div>
+            <div class="hamburger" role="button" aria-label="Toggle Menu">☰</div>
         </nav>
     </header>
-
     <main>
-        <!-- Page Banner -->
-        <div class="page-banner">
-            <div>
-                <h1>Contact Us</h1>
-                <span class="banner-subtitle">We'd love to hear from you</span>
-            </div>
-        </div>
-
         <section class="contact animate">
+            <h1>Contact Us</h1>
             <div class="contact-container">
-                <!-- Contact Info -->
                 <div class="contact-info">
                     <h3>Get in Touch</h3>
-                    <p><strong>Phone:</strong> <a href="tel:+35799496580">(+357) 99 496 580</a></p>
-                    <p><strong>Email:</strong> <a href="/cdn-cgi/l/email-protection#59353c3f32303138302b192a3834302a3c3733382938373c2a3c773a3634"><span class="__cf_email__" data-cfemail="432f2625282a2b222a310330222e2a30262d292233222d2630266d202c2e">[email&#160;protected]</span></a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+35799496580">(+357) 99496580</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:lefkihair@samisenjapanese.com">lefkihair@samisenjapanese.com</a></p>
                     <p><strong>Address:</strong> Louis Ledra Beach Hotel, Paphos, Cyprus</p>
-                    <p><strong>Hours:</strong> Flexible – contact us to arrange</p>
-
+                    <p><strong>Hours:</strong> Flexible</p>
                     <div class="whatsapp-qr">
                         <h4>Scan for WhatsApp</h4>
-                        <img src="images/whatsapp.jpg" alt="WhatsApp QR Code">
+                        <img src="images/whatsapp.jpg" alt="WhatsApp QR Code" style="border-radius: 10px; margin-top: 10px;">
                     </div>
-
                     <div class="whatsapp-button">
-                        <h4>Or tap to message us</h4>
-                        <a href="https://wa.me/35799496580" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Chat on WhatsApp">
-                            WhatsApp Me
-                        </a>
+                        <h4>Click for WhatsApp</h4>
+                        <a href="https://wa.me/35799496580" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">WhatsApp Me</a>
                     </div>
                 </div>
-
-                <!-- Contact Form -->
                 <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key"  value="e849e189-c284-404d-b022-e8be5297d196">
-                    <input type="hidden" name="_subject"    value="New Contact Form Submission - Lefki Hair Salon">
-                    <input type="hidden" name="_next"       value="thank-you.html">
-                    <!-- web3forms honeypot: must be present and unchecked, bots fill it and get flagged -->
-                    <input type="checkbox" name="botcheck" style="display:none;">
-
+                    <input type="hidden" name="access_key" value="e849e189-c284-404d-b022-e8be5297d196">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - Lefki Hair Salon">
                     <label for="name">Name</label>
-                    <input type="text"  id="name"    name="name"    required class="animate-input" aria-required="true" placeholder="Your name">
-
+                    <input type="text" id="name" name="name" required class="animate-input" aria-required="true">
                     <label for="email">Email</label>
-                    <input type="email" id="email"   name="email"   required class="animate-input" aria-required="true" placeholder="your@email.com">
-
+                    <input type="email" id="email" name="email" required class="animate-input" aria-required="true">
                     <label for="mobile">Mobile Number</label>
-                    <input type="tel"   id="mobile"  name="mobile"  class="animate-input" placeholder="+357 xx xxxxxx">
-
+                    <input type="tel" id="mobile" name="mobile" class="animate-input">
                     <label for="service">Service</label>
-                    <select id="service" name="service" class="animate-input" required aria-required="true">
+                    <select id="service" name="service" class="animate-input" aria-required="true">
                         <option value="">Select a Service</option>
                         <option value="Bridal Hair">Bridal Hair</option>
-                        <option value="Bridesmaids">Bridesmaids</option>
+                        <option value="Brides Maids">Brides Maids</option>
                         <option value="Wedding Guests Hair Up">Wedding Guests Hair Up</option>
                         <option value="Blow Dry">Blow Dry</option>
                         <option value="Hair Cuts">Hair Cuts</option>
@@ -90,35 +67,24 @@
                         <option value="Highlights">Highlights</option>
                         <option value="Other">Other</option>
                     </select>
-
                     <label for="message">Message</label>
-                    <textarea id="message" name="message" required class="animate-input" aria-required="true" placeholder="Tell us about your appointment…"></textarea>
-
-                    <button type="submit" aria-label="Send Message">Send Message</button>
+                    <textarea id="message" name="message" required class="animate-input" aria-required="true"></textarea>
+                    <button type="submit" class="glow" aria-label="Send Message">Send Message</button>
                 </form>
             </div>
-
-            <!-- Map -->
             <div class="map animate">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1274.0411855231266!2d32.430560331972686!3d34.74228919821359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e706b15e97b1bb%3A0xaf35d2347913e105!2sLouis%20Ledra%20Beach!5e0!3m2!1sen!2s!4v1753201845330!5m2!1sen!2s"
-                    width="100%"
-                    height="400"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Map to Louis Ledra Beach Hotel">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1274.0411855231266!2d32.430560331972686!3d34.74228919821359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14e706b15e97b1bb%3A0xaf35d2347913e105!2sLouis%20Ledra%20Beach!5e0!3m2!1sen!2s!4v1753201845330!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Louis Ledra Beach Hotel"></iframe>
             </div>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2025 Lefki Hair Salon. All rights reserved.</p>
         <div class="social-links">
-            <a href="https://instagram.com/lefkihair" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-            <!-- FIX: was https://facebook.com/lefkihair — incorrect URL -->
-            <a href="https://www.facebook.com/people/Lefki-Hair/61578693663488/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+            <a href="https://instagram.com/lefkihair" target="_blank" aria-label="Instagram">Instagram</a>
+            <a href="https://facebook.com/lefkihair" target="_blank" aria-label="Facebook">Facebook</a>
         </div>
-    </foot
+    </footer>
+    <a href="contact" class="sticky-cta pulse" role="button" aria-label="Book Now">Book Now</a>
+    <script src="script.js"></script>
+</body>
+</html>
